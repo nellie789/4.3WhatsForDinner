@@ -15,7 +15,7 @@ mixin restaurantForm(restaurant, actionURL, mode, title)
                     label(for='rating') Rating
                     select(id='rating' autocomplete='off')
                         -for(let i = 1; i <= 5; i++)
-                        option(value=i selected = (rating === restaurant.rating)) #{i}
+                            option(value=i selected = (rating === restaurant.rating)) #{i}
                 div.form-input
                     label(for='image') Image URL:
                     input(type='text' id='image' name='image' value=restaurant.image)
