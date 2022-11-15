@@ -8,6 +8,7 @@ module.exports.viewAll = async function(req, res){
     }
     let restaurants;
     let searchCategory = req.query.category || 'All';
+    let searchRandom = req.query.random || false;
     if (searchCategory==='All'){
         restaurants = await Restaurant.findAll();
     } else {
@@ -17,7 +18,7 @@ module.exports.viewAll = async function(req, res){
             }
         });
     }
-    if (restaurants.length > 0){
+    if (restaurants.length > 0 && searchRandom){
         let randomIndex = getRandomInt(restaurants.length);
         restaurants = [restaurants[randomIndex]];
     }
